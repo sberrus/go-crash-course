@@ -26,6 +26,11 @@ func addPlusUltra(a, b int, c, d string) int {
 	return a + b
 }
 
+// En go se pueden devolver multiples valores en una función del a siguiente forma
+func getFullName(firstName string, secondName string) (string, string) {
+	return firstName, secondName
+}
+
 func main() {
 
 	// Convensión es CamelCase siendo la primera letra mayuscula para las variables que estan definidas para exportación y con la primera letra minuscula para las variables locales
@@ -87,4 +92,13 @@ func main() {
 	fmt.Printf("The function returns: %d\n", basicFunc(1, 2))
 	fmt.Printf("The numbers sums: %d\n", add(3, 5, 5, 1))
 	fmt.Printf("The numbers sums: %d\n", addPlusUltra(3, 5, "text1", "text2"))
+
+	var firstName, secondName = getFullName("Jhon", "Doe")
+	fmt.Println("Hi my name is", firstName, secondName)
+
+	// Una de las cosa que tenemos en go y en otros lenguajes es que si se usa _ como nombre de variable, automaticamente el compilador ignora el valor.
+	// Este aproach es realmente útil, porque el compilador fuerza al desarrollador que se usen todas las variables declaradas de forma predeterminada y las que no se usen a la hora de compilar, devuelven error.
+	var firstName2, _ = getFullName("Jhonny", "Doe")
+	fmt.Println("But they call me", firstName2)
+
 }
